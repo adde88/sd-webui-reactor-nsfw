@@ -20,8 +20,7 @@ from scripts.reactor_helpers import (
     get_images_from_folder,
     get_random_image_from_folder,
     get_images_from_list,
-    set_SDNEXT,
-    check_nsfwdet_model
+    set_SDNEXT
 )
 from scripts.console_log_patch import apply_logging_patch
 
@@ -35,7 +34,6 @@ from modules.upscaler import UpscalerData
 from modules.shared import state
 from scripts.reactor_logger import logger
 from reactor_modules.reactor_mask import apply_face_mask
-import scripts.reactor_sfw as sfw
 
 try:
     from modules.paths_internal import models_path
@@ -56,9 +54,6 @@ if DEVICE == "CUDA":
     PROVIDERS = ["CUDAExecutionProvider"]
 else:
     PROVIDERS = ["CPUExecutionProvider"]
-
-NSFWDET_MODEL_PATH = os.path.join(models_path, "nsfw_detector","vit-base-nsfw-detector")
-check_nsfwdet_model(NSFWDET_MODEL_PATH)
 
 @dataclass
 class EnhancementOptions:
@@ -351,18 +346,6 @@ def get_face_single(img_data: np.ndarray, face, face_index=0, det_size=(640, 640
         return None, 0, face_age, face_gender
 
 
-def check_sfw_image(img: Image.Image):
-    tmp_img = "reactor_tmp.png"
-    if check_process_halt():
-        return None
-    img.save(tmp_img)
-    if not sfw.nsfw_image(tmp_img, NSFWDET_MODEL_PATH):
-        if os.path.exists(tmp_img):
-            os.remove(tmp_img)
-        return img
-    return None
-
-
 def swap_face(
     source_img: Image.Image,
     target_img: Image.Image,
@@ -388,9 +371,7 @@ def swap_face(
     result_image = target_img
 
     logger.status("Checking for any unsafe content")
-    if check_sfw_image(result_image) is None:
-        return result_image, [], 0
-
+    
     PROVIDERS = ["CUDAExecutionProvider"] if device == "CUDA" else ["CPUExecutionProvider"]
     
     if check_process_halt():
