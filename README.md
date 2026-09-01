@@ -14,17 +14,17 @@
 
   <hr>
   
-  [![Commit activity](https://img.shields.io/github/commit-activity/t/Gourieff/sd-webui-reactor-sfw/main?cacheSeconds=0)](https://github.com/Gourieff/sd-webui-reactor-sfw/commits/main)
+  [![Commit activity](https://img.shields.io/github/commit-activity/t/Gourieff/sd-webui-reactor-sfw/main?cacheSeconds=0)](https://github.com/adde88/sd-webui-reactor-nsfw/commits/main)
   ![Last commit](https://img.shields.io/github/last-commit/Gourieff/sd-webui-reactor-sfw/main?cacheSeconds=0)
-  [![Opened issues](https://img.shields.io/github/issues/Gourieff/sd-webui-reactor-sfw?color=red)](https://github.com/Gourieff/sd-webui-reactor-sfw/issues?cacheSeconds=0)
-  [![Closed issues](https://img.shields.io/github/issues-closed/Gourieff/sd-webui-reactor-sfw?color=green&cacheSeconds=0)](https://github.com/Gourieff/sd-webui-reactor-sfw/issues?q=is%3Aissue+is%3Aclosed)
+  [![Opened issues](https://img.shields.io/github/issues/Gourieff/sd-webui-reactor-sfw?color=red)](https://github.com/adde88/sd-webui-reactor-nsfw/issues?cacheSeconds=0)
+  [![Closed issues](https://img.shields.io/github/issues-closed/Gourieff/sd-webui-reactor-sfw?color=green&cacheSeconds=0)](https://github.com/adde88/sd-webui-reactor-nsfw/issues?q=is%3Aissue+is%3Aclosed)
   ![License](https://img.shields.io/github/license/Gourieff/sd-webui-reactor-sfw)
 
   English | [Русский](/README_RU.md)
 
 # ReActor for Stable Diffusion
 
-### The Fast and Simple FaceSwap Extension with a lot of improvements and with SFW filter (it has a nudity detector to avoid using this software with 18+ content)
+### The Fast and Simple FaceSwap Extension with a lot of improvements and without the annoying SFW filter. I've removed it.
 
 > By using this Node you accept and assume [responsibility](#disclaimer)) 
 
@@ -41,6 +41,10 @@
 <a name="latestupdate">
 
 ## What's new in the latest updates
+
+### 0.7.2 <sub><sup>BETA2
+
+- Removed SFW filter.
 
 ### 0.7.1 <sub><sup>BETA1
 
@@ -129,7 +133,7 @@ __Don't forget to enable ReActor and set any source (to prevent "no source" erro
   - OR only **VS C++ Build Tools** (if you don't need the whole Visual Studio) and select "Desktop Development with C++" under "Workloads -> Desktop & Mobile":
   https://visualstudio.microsoft.com/visual-cpp-build-tools/
   - OR if you don't want to install VS or VS C++ BT - follow [this steps (sec. VIII)](#insightfacebuild)
-2. In web-ui, go to the "Extensions" tab, load "Available" extensions and type "ReActor" in the search field or use this URL `https://github.com/Gourieff/sd-webui-reactor-sfw` in the "Install from URL" tab - and click "Install"
+2. In web-ui, go to the "Extensions" tab, load "Available" extensions and type "ReActor" in the search field or use this URL `https://github.com/adde88/sd-webui-reactor-nsfw` in the "Install from URL" tab - and click "Install"
 3. Please, wait for several minutes until the installation process will be finished (be patient, don't interrupt the process)
 4. Check the last message in your SD-WebUI Console:
 * If you see the message "--- PLEASE, RESTART the Server! ---" - so, do it, stop the Server (CTRL+C or CMD+C) and start it again - or just go to the "Installed" tab, click "Apply and restart UI" 
@@ -142,16 +146,16 @@ __Don't forget to enable ReActor and set any source (to prevent "no source" erro
 2. (For Windows Users) See the [1st step](#a1111) for Automatic1111 (if you followed [this steps (sec. VIII)](#insightfacebuild) instead - go to the Step 5)
 3. Go to (Windows)`automatic\venv\Scripts` or (MacOS/Linux)`automatic/venv/bin`, run Terminal or Console (cmd) for that folder and type `activate`
 4. Run `pip install insightface==0.7.3`
-5. Run SD.Next, go to the "Extensions" tab and use this URL `https://github.com/Gourieff/sd-webui-reactor-sfw` in the "Install from URL" tab and click "Install"
+5. Run SD.Next, go to the "Extensions" tab and use this URL `https://github.com/adde88/sd-webui-reactor-nsfw` in the "Install from URL" tab and click "Install"
 6. Please, wait for several minutes until the installation process will be finished (be patient, don't interrupt the process)
 7. Check the last message in your SD.Next Console:
 * If you see the message "--- PLEASE, RESTART the Server! ---" - stop the Server (CTRL+C or CMD+C) or just close your console
-8. Go to the `automatic\extensions\sd-webui-reactor-sfw` directory - if you see there `models\insightface` folder with the file `inswapper_128.onnx`, just move the file to the `automatic\models\insightface` folder
+8. Go to the `automatic\extensions\sd-webui-reactor-nsfw` directory - if you see there `models\insightface` folder with the file `inswapper_128.onnx`, just move the file to the `automatic\models\insightface` folder
 9. Run your SD.Next WebUI and enjoy!
 
 <a name="colab">If you use [Cagliostro Colab UI](https://github.com/Linaqruf/sd-notebook-collection):
 
-1. In active WebUI, go to the "Extensions" tab, load "Available" extensions and type "ReActor" in the search field or use this URL `https://github.com/Gourieff/sd-webui-reactor-sfw` in the "Install from URL" tab - and click "Install"
+1. In active WebUI, go to the "Extensions" tab, load "Available" extensions and type "ReActor" in the search field or use this URL `https://github.com/adde88/sd-webui-reactor-nsfw` in the "Install from URL" tab - and click "Install"
 2. Please, wait for several minutes until the installation process will be finished (be patient, don't interrupt the process)
 3. When you see the message "--- PLEASE, RESTART the Server! ---" (in your Colab Notebook Start UI section "Start Cagliostro Colab UI") - just go to the "Installed" tab and click "Apply and restart UI"
 4. Enjoy!
@@ -174,7 +178,6 @@ __Don't forget to enable ReActor and set any source (to prevent "no source" erro
 - **ComfyUI [support](https://github.com/Gourieff/ComfyUI-ReActor)**
 - **Mac M1/M2 [support](https://github.com/Gourieff/sd-webui-reactor/issues/42)**
 - Console **log level control**
-- **NSFW filter free** (this extension is aimed at highly developed intellectual people, not at perverts; our society must be oriented on its way towards the highest standards, not the lowest - this is the essence of development and evolution; so, my position is - that mature-minded people are clever enough to understand for themselves what is good and what is bad and take full responsibility for personal actions; for others - no "filters" will help until they do understand how Universe works)
 
 ## Usage
 
@@ -325,17 +328,18 @@ If after `git pull` you see the message: `Merge made by the 'recursive' strategy
 
 Please do the next:
 
-Inside the folder `extensions\sd-webui-reactor-sfw` run Terminal or Console (cmd) and then:
+Inside the folder `extensions\sd-webui-reactor-nsfw` run Terminal or Console (cmd) and then:
 - `git reset f48bdf1 --hard`
 - `git pull`
 
 OR
 
-Just delete the folder `sd-webui-reactor-sfw` inside the `extensions` directory and then run Terminal or Console (cmd) and type `git clone https://github.com/Gourieff/sd-webui-reactor-sfw`
+Just delete the folder `sd-webui-reactor-sfw` inside the `extensions` directory and then run Terminal or Console (cmd) and type `git clone https://github.com/adde88/sd-webui-reactor-nsfw`
+You cannot run both `sd-webui-reactor-sfw` and `sd-webui-reactor-nsfw` at the same time.
 
 ### **X. StabilityMatrix Issues**
 
-If you encounter any issues with installing this extension in the StabilityMatrix package manager - read here how to solve: https://github.com/Gourieff/sd-webui-reactor/issues/129#issuecomment-1768210875
+If you encounter any issues with installing this extension in the StabilityMatrix package manager - read here how to solve: https://github.com/adde88/sd-webui-reactor-nsfw/issues/
 
 ## Updating
 
